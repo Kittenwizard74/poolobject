@@ -178,4 +178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 7
   lifeTime: 0
-  maxlifeTime: 4
+  maxlifeTime: 100

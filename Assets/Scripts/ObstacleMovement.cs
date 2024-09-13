@@ -13,9 +13,19 @@ public class ObstacleMovement : MonoBehaviour
         transform.position -= new Vector3(velocity * Time.deltaTime, 0, 0); // Ahora el cactus se mueve hacia la izquierda (negativo pq es así en el eje X).
         lifeTime += Time.deltaTime; // Para que cuando aparezca el objeto empiece a contarse el tiempo de vida lifeTime.
 
-        if (lifeTime >= maxlifeTime)
+        //if (lifeTime >= maxlifeTime)
+        //{
+        //    gameObject.SetActive(false);
+        //}
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
         {
-            gameObject.SetActive(false);
+            Debug.Log("Memuero");
+            gameObject.SetActive(false); 
         }
     }
 }

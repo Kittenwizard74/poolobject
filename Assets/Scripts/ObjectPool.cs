@@ -38,7 +38,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        for (int i = 0;i < amountToPool; i++)
+        for (int i = 0;i < pooledObjects.Count; i++)
         {
             if (!pooledObjects[i].activeInHierarchy)
             {
@@ -46,5 +46,10 @@ public class ObjectPool : MonoBehaviour
             }
         }
         return null;
+
+        GameObject tmp = Instantiate(objectToPool);
+        tmp.SetActive(false);
+        pooledObjects.Add(tmp);  // Añadimos el nuevo objeto al pool
+        return tmp;
     }
 }
